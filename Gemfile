@@ -12,7 +12,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'devise'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'responders'
+gem 'aasm'
 
 group :development, :test do
   gem 'byebug', platform: :mri

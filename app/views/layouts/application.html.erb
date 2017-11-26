@@ -7,8 +7,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <nav class='nav'>
+      <a class='navbar-brand', href='<%= root_path %>'>Space Is Free</a>
+      <a class='nav-link ml-auto' href='<%= creases_path %>'>Складчины</a>
+      <a class='nav-link' href='#'>О проекте</a>
+      <% if !current_user %>
+        <a class='nav-link' href='<%= new_user_registration_path %>'>Зарегистрироваться</a>
+        <a class='nav-link' href='<%= new_user_session_path %>'>Войти</a>
+      <% else %>
+        <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>

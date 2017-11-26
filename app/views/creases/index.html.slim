@@ -1,0 +1,36 @@
+.center
+  h1 Доступные складчины
+  .nav-center
+    ul.nav.nav-tabs role='tablist'
+      li role='presentation'
+        = link_to '#proposed', data: { toggle: 'tab' }, role: 'tab', class: 'nav-item nav-link' do
+          span data-toggle='tooltip' data-placement='top' title='Складчины, которые были предложены пользователями' Предложенные 
+          span.badge.badge-light= @proposed_creases.length
+      li role='presentation'
+        = link_to '#approved', data: { toggle: 'tab' }, role: 'tab', class: 'nav-item nav-link'
+          span data-toggle='tooltip' data-placement='top' title='Одобренные складчины, которые прошли модерацию и куда можно записаться' Одобренные
+          span.badge.badge-light= @approved_creases.length
+      li role='presentation'
+        = link_to '#active', data: { toggle: 'tab' }, role: 'tab', class: 'nav-item nav-link'
+          span data-toggle='tooltip' data-placement='top' title='Активные складчины, в которых ведется сбор средств' Активные
+          span.badge.badge-light= @active_creases.length
+      li role='presentation'
+        = link_to '#finished', data: { toggle: 'tab' }, role: 'tab', class: 'nav-item nav-link'
+          span data-toggle='tooltip' data-placement='top' title='Успешно завершившиеся складчины, где пользователи получили свой товар' Завершенные
+          span.badge.badge-light= @completed_creases.length
+      li role='presentation'
+        = link_to '#canceled', data: { toggle: 'tab' }, role: 'tab', class: 'nav-item nav-link'
+          span data-toggle='tooltip' data-placement='top' title='Складчины, отмененные по каким то причинам автором или администратором' Отмененные
+          span.badge.badge-light= @canceled_creases.length
+
+    .tab-content
+      .tab-pane.active#proposed role='tabpanel'
+        = render 'proposed'
+      .tab-pane#approved role='tabpanel'
+        = render 'approved'
+      .tab-pane#active role='tabpanel'
+        = render 'active'
+      .tab-pane#finished role='tabpanel'
+        = render 'finished'
+      .tab-pane#canceled role='tabpanel'
+        = render 'canceled'

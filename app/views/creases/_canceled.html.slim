@@ -1,0 +1,17 @@
+- if !@canceled_creases.empty?
+  table.table.table-bordered
+    thead
+      tr.table-info
+        th Название
+        th Сумма
+        th Участники
+    tbody
+      - @canceled_creases.each do |crease|
+        tr
+          td= link_to crease.title, crease_path(crease)
+          td= crease.amount
+          td= "#{crease.users.count}/#{crease.recommended_quantity}"
+- else
+  .jumbotron.jumbotron-fluid
+    .container
+      p.lead Отмененных складчин пока нет

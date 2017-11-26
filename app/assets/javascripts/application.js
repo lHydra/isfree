@@ -11,7 +11,19 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
+//= require popper
+//= require bootstrap
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function() { 
+  $(".nav a").on("click", function(){
+    $(".nav").find(".active").removeClass("active");
+    $(this).parent().addClass("active");
+  });
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+});
