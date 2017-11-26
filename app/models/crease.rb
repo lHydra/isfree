@@ -1,10 +1,13 @@
 class Crease < ApplicationRecord
   include AASM
 
-  validates :title, :link, :description, :recommended_quantity, :amount, presence: true
-  validates :title, length: { maximum: 500 }
-  validates :recommended_quantity, format: { with: /\A\d+\z/, message: 'Integer only. No sign allowed.' }
-  validates :amount, format: { with: /\A\d+\z/, message: 'Integer only. No sign allowed.' }
+  has_many :participants
+  has_many :users, through: :participants
+
+  validates :title, :link, :description, presence: true
+  validates :title, length: { maximum: 300 }
+  validates :recommended_quantity, format: { with: /\A\d+\z/, message: 'Неверный формат. Введите число' }
+  validates :amount, format: { with: /\A\d+\z/, message: 'Неверный формат. Введите число' }
 
   aasm column: 'state' do
     state :proposed, initial: true
@@ -42,7 +45,4 @@ class Crease < ApplicationRecord
       transitions from: [:finished], to: :active
     end
   end
-
-  has_many :participants
-  has_many :users, through: :participants
 end

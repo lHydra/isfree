@@ -19,6 +19,9 @@ gem 'aasm'
 gem 'rails_admin', '~> 1.2'
 gem 'cancancan'
 gem 'rolify'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
+gem 'russian', '~> 0.6.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

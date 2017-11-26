@@ -15,9 +15,11 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require turbolinks
+//= require rails.validations
+//= require rails.validations.simple_form
 //= require_tree .
 
-$(document).on('turbolinks:load', function() { 
+$(document).on('turbolinks:load', function() {
   $(".nav a").on("click", function(){
     $(".nav").find(".active").removeClass("active");
     $(this).parent().addClass("active");
