@@ -16,6 +16,9 @@ gem 'devise'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'responders'
 gem 'aasm'
+gem 'rails_admin', '~> 1.2'
+gem 'cancancan'
+gem 'rolify'
 
 group :development, :test do
   gem 'byebug', platform: :mri

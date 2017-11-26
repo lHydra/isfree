@@ -1,6 +1,11 @@
 class Crease < ApplicationRecord
   include AASM
 
+  validates :title, :link, :description, :recommended_quantity, :amount, presence: true
+  validates :title, length: { maximum: 500 }
+  validates :recommended_quantity, format: { with: /\A\d+\z/, message: 'Integer only. No sign allowed.' }
+  validates :amount, format: { with: /\A\d+\z/, message: 'Integer only. No sign allowed.' }
+
   aasm column: 'state' do
     state :proposed, initial: true
     state :approved
