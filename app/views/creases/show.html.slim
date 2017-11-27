@@ -1,5 +1,9 @@
 .crease
-  h1= @crease.title
+  h1
+    = @crease.title
+    small
+      = link_to "https://anon.to/?#{@crease.link}" do
+        i.fa.fa-external-link-square.fa-fw aria-hidden='true'
   hr
   .row
     .info.border.border-info.col-sm-10
@@ -22,4 +26,3 @@
     .description
       h2 Описание:
       p= @crease.description
-

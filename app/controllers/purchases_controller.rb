@@ -14,7 +14,7 @@ class PurchasesController < ApplicationController
     @crease = Crease.find(params[:crease_id])
     current_user.creases.delete(@crease)
 
-    if @crease.users.count < @crease.recommended_quantity
+    if @crease.users.count < @crease.recommended_quantity && @crease.active?
       @crease.inactive!
     end
 
