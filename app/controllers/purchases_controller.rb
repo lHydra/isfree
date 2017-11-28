@@ -7,6 +7,8 @@ class PurchasesController < ApplicationController
       @crease.activate!
     end
 
+    UserNotifier.send_participation_email(current_user, @crease).deliver
+    flash[:success] = 'Вы успешно записались на участие в складчине'
     redirect_to @crease
   end
 
@@ -18,6 +20,7 @@ class PurchasesController < ApplicationController
       @crease.inactive!
     end
 
+    flash[:warning] = 'Вы отказались от участия в складчине'
     redirect_to @crease
   end
 end

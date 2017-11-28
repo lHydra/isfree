@@ -17,7 +17,8 @@ class CreasesController < ApplicationController
   def create
     @crease = Crease.create(crease_params)
     @crease.users.push(current_user)
-    
+
+    flash[:success] = 'Вы успешно предложили складчину'
     respond_with @crease
   end
 

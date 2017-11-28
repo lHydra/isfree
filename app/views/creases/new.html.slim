@@ -4,11 +4,17 @@
     .row
       .col-lg-12
         =f.input :title, label: 'Название товара', input_html: { class: 'form-control' }
+    .row
       .col-lg-4
         = f.input :link, label: 'Ссылка на продукт', input_html: { class: 'form-control' }
       .col-lg-4
         = f.input :recommended_quantity, label: 'Количество участников', input_html: { class: 'form-control' }
       .col-lg-4
         = f.input :amount, label: 'Сумму в рублях', input_html: { class: 'form-control' }
-    = f.input :description, label: 'Описание товара', input_html: { class: 'form-control', rows: 10 }
-    = f.button :submit, 'Предложить складчину', id: 'create_crease', class: 'btn-info'
+    .row
+      .col-lg-12
+        = f.input :description, label: 'Описание товара', input_html: { class: 'form-control', rows: 10 }
+    .row
+      .col-lg-12
+        = f.button :submit, 'Предложить складчину', id: 'create_crease', class: 'btn-info'
+    hr
