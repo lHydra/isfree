@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: isfree_production
-  username: isfree
-  password: <%= ENV['ISFREE_DATABASE_PASSWORD'] %>
+  username: rails
