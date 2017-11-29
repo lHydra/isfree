@@ -1,16 +1,17 @@
 - if !@active_creases.empty?
-  table.table.table-bordered
-    thead
-      tr.table-info
-        th Название
-        th Сумма
-        th Участники
-    tbody
-      - @active_creases.each do |crease|
-        tr
-          td= link_to crease.title, crease_path(crease)
-          td= crease.amount
-          td= "#{crease.users.count}/#{crease.recommended_quantity}"
+  .table-responsive
+    table.table.table-bordered
+      thead
+        tr.table-info
+          th Название
+          th Сумма
+          th Участники
+      tbody
+        - @active_creases.each do |crease|
+          tr
+            td= link_to crease.title, crease_path(crease)
+            td= crease.amount
+            td= "#{crease.users.count}/#{crease.recommended_quantity}"
 - else
   .jumbotron.jumbotron-fluid
     .container
