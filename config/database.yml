@@ -82,3 +82,4 @@ production:
   <<: *default
   database: isfree_production
   username: rails
+  password: <%= ENV['RAIL_RAIL_POSTGRESS_PASS'] %>
