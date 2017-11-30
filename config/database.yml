@@ -82,4 +82,4 @@ production:
   <<: *default
   database: isfree_production
   username: george
-  password: '89273223910qQ'
+  password: <%= ENV["DATABASE_PASSWORD_ISFREE"] %>
