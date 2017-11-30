@@ -1,5 +1,5 @@
 # Change these
-server '165.227.210.250', port: 22, roles: [:web, :app, :db], primary: true
+server '165.227.210.250', port: 5764, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:lHydra/isfree.git'
 set :application,     'isfree'
