@@ -11,13 +11,7 @@
     <nav class='navbar navbar-toggleable-md navbar-light bg-faded'>
       <a class='navbar-brand' href='<%= root_path %>'>Space Is Free</a>
       <%= render 'layouts/dropdown_navbar' %>
-      <a class='nav-link ml-auto d-none d-sm-block' href='<%= creases_path %>'>Складчины</a>
-      <% if !current_user %>
-        <a class='nav-link d-none d-sm-block' href='<%= new_user_registration_path %>'>Зарегистрироваться</a>
-        <a class='nav-link d-none d-sm-block' href='<%= new_user_session_path %>'>Войти</a>
-      <% else %>
-        <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'nav-link d-none d-sm-block' %>
-      <% end %>
+      <%= render 'layouts/navbar' %>
     </nav>
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>

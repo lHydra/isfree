@@ -1,3 +1,52 @@
 // Place all the styles related to the Creases controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new_crease {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#create_crease {
+  margin-top: 10px;
+  float: left;
+}
+
+.crease {
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.info {
+  text-align: left;
+  border-radius: 4px;
+  padding: 15px 10px;
+}
+
+.info p {
+  margin-bottom: 0.1rem;
+}
+
+.description {
+  text-align: left;
+}
+
+.crease h1 {
+  text-align: left;
+}
+
+.tooltip .tooltip-inner {
+  background-color: #245973;
+  border-radius: 4px;
+}
+
+.badge {
+  padding: 3px 7px;
+  border-radius: 10px;
+}
+
+.card-blockquote p {
+  margin: 1rem;
+}
