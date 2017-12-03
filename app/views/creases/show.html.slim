@@ -15,6 +15,9 @@
       p
         strong Дата:
         = " #{@crease.created_at}"
+      p 
+        - if current_user.id == @crease.creator_id
+          = link_to 'Удалить', crease_path(@crease), method: :delete, class: 'text-danger', data: { confirm: 'Вы уверены?' }
     .col-sm-4
       - if @user_has_crease
         = link_to 'Отказаться от участия', crease_purchase_path(@crease), method: :delete, class: 'btn btn-danger'

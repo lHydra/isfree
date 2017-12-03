@@ -20,8 +20,10 @@ class CreasesController < ApplicationController
   end
 
   def create
-    @crease = Crease.create(crease_params)
+    @crease = Crease.new(crease_params)
+    @crease.creator_id = current_user.id
     @crease.users.push(current_user)
+    @crease.save
 
     flash[:success] = 'Вы успешно предложили складчину'
     respond_with @crease
@@ -32,10 +34,19 @@ class CreasesController < ApplicationController
     # SEO meta tags
     @meta_title = meta_title @crease.title
     @meta_description = @crease.description
-    
+
     @participants = @crease.users
     @user_has_crease = current_user.creases.include?(@crease) if current_user
     @each_amount = @crease.amount.to_f / @crease.users.count
+  end
+
+
+  def destroy
+    @crease = Crease.friendly.find(params[:id])
+    @crease.delete
+
+    flash[:success] = 'Складчина успешно удалена'
+    redirect_to creases_path
   end
 
   private
