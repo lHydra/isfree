@@ -120,6 +120,8 @@ GEM
       railties (>= 3.2, < 5.2)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -340,6 +342,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   font-awesome-sass (~> 4.7.0)
+  friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
   jquery-rails
   launchy

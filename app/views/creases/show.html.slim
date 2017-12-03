@@ -7,7 +7,7 @@
   hr
   .row
     .info.border.border-info.col-sm-8
-      span.badge.badge-primary= @ru_state[@crease.aasm_read_state]
+      span.badge.badge-primary= t(@crease.aasm_read_state)
       = "#{@crease.users.count}/#{@crease.recommended_quantity} участников"
       p
         strong Стоимость:
@@ -22,7 +22,7 @@
         p Для участия необходимо авторизироваться
         = link_to 'Войти', new_user_session_path, class: 'btn btn-info'
       - else
-        = link_to 'Участвовать в складчине', crease_purchases_path(@crease), method: :post, class: 'btn btn-success'
+        = link_to 'Участвовать в складчине', crease_purchases_path(@crease), method: :post, class: "btn btn-success #{'disabled' if @crease.state == 'proposed'}"
   .description
     h2 Описание:
     p= @crease.description

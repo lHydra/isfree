@@ -1,5 +1,8 @@
-class Crease < ApplicationRecord
+ class Crease < ApplicationRecord
   include AASM
+  extend FriendlyId
+
+  friendly_id :title, use: :slugged
 
   has_many :participants
   has_many :users, through: :participants

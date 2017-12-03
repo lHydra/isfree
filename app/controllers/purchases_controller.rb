@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
+  before_action :set_crease
+
   def create
-    @crease = Crease.find(params[:crease_id])
     current_user.creases.push @crease
 
     if @crease.users.count == @crease.recommended_quantity
@@ -13,7 +14,6 @@ class PurchasesController < ApplicationController
   end
 
   def destroy
-    @crease = Crease.find(params[:crease_id])
     current_user.creases.delete(@crease)
 
     if @crease.users.count < @crease.recommended_quantity && @crease.active?
@@ -22,5 +22,11 @@ class PurchasesController < ApplicationController
 
     flash[:warning] = 'Вы отказались от участия в складчине'
     redirect_to @crease
+  end
+
+  private
+
+  def set_crease
+    @crease = Crease.friendly.find(params[:crease_id])
   end
 end
