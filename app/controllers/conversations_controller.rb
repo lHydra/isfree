@@ -1,14 +1,17 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_mailbox, except: [:create]
 
   def index
-    @conversations = current_user.mailbox.conversations
+    @conversations = @mailbox.conversations
   end
 
   def new
     @crease = Crease.friendly.find(params[:crease_id])
+
+    # If dialog has already been started redirect to dialog
     subject = 'Диалог с автором складчины ' + @crease.title
-    if current_user.mailbox.conversations.where(subject: subject).size > 1
+    if @mailbox.conversations.where(subject: subject).size > 0
       redirect_to conversation_path(current_user.mailbox.conversations[0])
     end
   end
@@ -24,6 +27,12 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = current_user.mailbox.conversations.find(params[:id])
+    @conversation = @mailbox.conversations.find(params[:id])
+  end
+
+  private
+
+  def set_mailbox
+    @mailbox = current_user.mailbox
   end
 end

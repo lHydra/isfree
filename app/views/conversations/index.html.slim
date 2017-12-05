@@ -1,6 +1,11 @@
 .conversation
-  h1 Все диалоги
-
-  - @conversations.each do |conversation|
-    p= link_to conversation.subject, conversation_path(conversation) 
-    hr
+  h1.center Все диалоги
+  - if @conversations.empty?
+    .jumbotron.jumbotron-fluid
+      .container
+        .lead.center У вас пока нет открытых диалогов
+  - else
+    - @conversations.each do |conversation|
+      p= link_to conversation.subject, conversation_path(conversation) 
+      hr
+  hr
