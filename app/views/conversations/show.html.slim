@@ -1,0 +1,16 @@
+.conversation
+  h1= @conversation.subject
+
+  - @conversation.receipts_for(current_user).each do |receipt|
+    - if receipt.message.sender == current_user
+      p= receipt.message.sender.name
+      = receipt.message.body
+    - else
+      .table-active
+        p= receipt.message.sender.name
+        = receipt.message.body
+    hr
+    
+  = form_tag conversation_messages_path(@conversation), method: :post do
+    p= text_area_tag :body, nil, class: 'form-control'
+    = submit_tag 'Отправить', class: 'btn btn-success'

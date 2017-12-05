@@ -16,9 +16,10 @@
         strong Дата:
         = " #{@crease.created_at}"
       p 
-        - if current_user.id == @crease.creator_id
+        - if current_user && current_user.id == @crease.creator_id
           = link_to 'Удалить', crease_path(@crease), method: :delete, class: 'text-danger', data: { confirm: 'Вы уверены?' }
     .col-sm-4
+      p= link_to 'Чат с автором', new_crease_conversation_path(@crease), class: 'btn btn-info custom-btn' if @crease.users.include? current_user
       - if @user_has_crease
         = link_to 'Отказаться от участия', crease_purchase_path(@crease), method: :delete, class: 'btn btn-danger'
       - elsif !current_user

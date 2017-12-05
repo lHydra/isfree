@@ -1,0 +1,6 @@
+.conversation
+  h1 Все диалоги
+
+  - @conversations.each do |conversation|
+    p= link_to conversation.subject, conversation_path(conversation) 
+    hr

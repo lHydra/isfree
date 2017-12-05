@@ -3,5 +3,6 @@
   <a class='nav-link d-none d-sm-block' href='<%= new_user_registration_path %>'>Зарегистрироваться</a>
   <a class='nav-link d-none d-sm-block' href='<%= new_user_session_path %>'>Войти</a>
 <% else %>
+  <%= link_to 'Сообщения', conversations_path, class: 'nav-link d-none d-sm-block' %>
   <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'nav-link d-none d-sm-block' %>
 <% end %>

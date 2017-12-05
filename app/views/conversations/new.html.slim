@@ -1,0 +1,6 @@
+.conversation
+  h1 Начать новый диалог
+
+  = form_tag crease_conversations_path(@crease), method: :post do
+    p= text_area_tag :body, nil, rows: 5, placeholder: 'Задайте автору складчины вопрос или отправьте данные о платеже, чтобы помочь идентифицировать вас', class: 'form-control'
+    = submit_tag 'Отправить сообщение', class: 'btn btn-info'

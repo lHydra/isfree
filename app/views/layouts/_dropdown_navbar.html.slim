@@ -3,6 +3,7 @@ li.nav-item.dropdown.mr-auto.d-block.d-sm-none
   .dropdown-menu
     = link_to 'Складчины', creases_path, class: 'dropdown-item'
     - if current_user
+      = link_to 'Сообщения', conversations_path, class: 'dropdown-item'
       = link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'dropdown-item'
     - else
       = link_to 'Зарегистрироваться', new_user_registration_path, class: 'dropdown-item'
