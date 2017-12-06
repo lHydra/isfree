@@ -4,8 +4,8 @@
     .jumbotron.jumbotron-fluid
       .container
         .lead.center У вас пока нет открытых диалогов
+    hr
   - else
     - @conversations.each do |conversation|
       p= link_to conversation.subject, conversation_path(conversation) 
       hr
-  hr

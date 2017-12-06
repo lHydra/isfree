@@ -25,7 +25,7 @@ class CreasesController < ApplicationController
     @crease.users.push(current_user)
     @crease.save
 
-    flash[:success] = 'Вы успешно предложили складчину'
+    flash[:notice] = 'Вы успешно предложили складчину'
     respond_with @crease
   end
 
@@ -45,7 +45,7 @@ class CreasesController < ApplicationController
     @crease = Crease.friendly.find(params[:id])
     @crease.delete
 
-    flash[:success] = 'Складчина успешно удалена'
+    flash[:notice] = 'Складчина успешно удалена'
     redirect_to creases_path
   end
 

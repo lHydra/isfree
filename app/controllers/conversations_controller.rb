@@ -22,7 +22,7 @@ class ConversationsController < ApplicationController
     recipient = User.find(crease.creator_id)
     receipt = current_user.send_message(recipient, params[:body], subject)
 
-    flash[:success] = 'Сообщение было успешно отправлено'
+    flash[:notice] = 'Сообщение было успешно отправлено'
     redirect_to conversation_path(receipt.conversation)
   end
 
