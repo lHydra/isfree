@@ -21,7 +21,7 @@
     .col-sm-4
       / link to start dialog with author
       - if @crease.users.include?(current_user) && current_user.id != @crease.creator_id
-        p= link_to 'Чат с автором', new_crease_conversation_path(@crease), class: 'btn btn-info custom-btn'
+        p= link_to 'Чат с продавцом', new_crease_conversation_path(@crease), class: 'btn btn-info custom-btn'
 
       - if @user_has_crease
         = link_to 'Отказаться от участия', crease_purchase_path(@crease), method: :delete, class: 'btn btn-danger'

@@ -9,7 +9,7 @@ class PurchasesController < ApplicationController
     end
 
     UserNotifier.send_participation_email(current_user, @crease).deliver
-    flash[:success] = 'Вы успешно записались на участие в складчине'
+    flash[:notice] = 'Вы успешно записались на участие в складчине'
     redirect_to @crease
   end
 
