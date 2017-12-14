@@ -81,6 +81,21 @@ footer .container {
   background-color: #888;
 }
 
-.navbar-brand {
+.navbar-light .navbar-brand {
   font-size: 1.65rem;
+  color: rgba(102, 104, 113, 0.9);
+}
+
+.navbar-brand:hover {
+  color: #17a2b8 !important;
+  cursor: pointer;
+}
+
+footer {
+  width: 68.8%;
+  margin: 0 auto;
+}
+
+.link {
+  margin: 3px 3px;
 }

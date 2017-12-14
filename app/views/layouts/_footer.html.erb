@@ -1,5 +1,11 @@
 <footer>
   <div class='container'>
-    <p class='text-muted'>PaySquad.ru</p>
+    <p class='text-muted'>
+      <% if request.path == root_path %>
+        <a class='links text-muted' href='<%= new_user_registration_path %>'>Присоединиться</a>
+      <% else %>
+        PaySquad.ru
+      <% end %>
+    </p>
   </div>
 </footer>
