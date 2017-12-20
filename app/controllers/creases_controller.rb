@@ -1,5 +1,6 @@
 class CreasesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: %i[new create]
+  before_action :set_crease, only: %i[show destroy]
   respond_to :html
 
   def index
@@ -8,11 +9,11 @@ class CreasesController < ApplicationController
     @meta_description = 'Список доступных складчин, в которых вы можете записаться на участие. Также можно принять участие в уже завершившихся складчинах.'
 
     @creases = Crease.all
-    @proposed_creases = @creases.select  { |crease| crease.proposed? }
-    @approved_creases = @creases.select  { |crease| crease.approved? }
-    @active_creases = @creases.select    { |crease| crease.active? }
-    @completed_creases = @creases.select { |crease| crease.finished? }
-    @canceled_creases = @creases.select  { |crease| crease.canceled? }
+    @proposed_creases = @creases.select(&:proposed?)
+    @approved_creases = @creases.select(&:approved?)
+    @active_creases = @creases.select(&:active?)
+    @completed_creases = @creases.select(&:finished?)
+    @canceled_creases = @creases.select(&:canceled?)
   end
 
   def new
@@ -30,7 +31,6 @@ class CreasesController < ApplicationController
   end
 
   def show
-    @crease = Crease.friendly.find(params[:id])
     # SEO meta tags
     @meta_title = meta_title @crease.title
     @meta_description = @crease.description
@@ -40,9 +40,7 @@ class CreasesController < ApplicationController
     @each_amount = @crease.amount.to_f / @crease.users.count
   end
 
-
   def destroy
-    @crease = Crease.friendly.find(params[:id])
     @crease.delete
 
     flash[:notice] = 'Складчина успешно удалена'
@@ -51,7 +49,15 @@ class CreasesController < ApplicationController
 
   private
 
+  def set_crease
+    @crease = Crease.friendly.find(params[:id])
+  end
+
   def crease_params
-    params.require(:crease).permit(:title, :description, :link, :amount, :recommended_quantity)
+    params.require(:crease).permit(:title,
+                                   :description,
+                                   :link,
+                                   :amount,
+                                   :recommended_quantity)
   end
 end

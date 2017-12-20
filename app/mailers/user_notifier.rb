@@ -5,7 +5,7 @@ class UserNotifier < ActionMailer::Base
   def send_participation_email(user, crease)
     @crease = crease
     @user = user
-    mail( to: @user.email,
-    subject: 'Вы записались на участие в складчине' )
+    mail(to: @user.email,
+         subject: 'Вы записались на участие в складчине')
   end
 end

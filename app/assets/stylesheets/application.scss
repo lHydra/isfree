@@ -12,23 +12,25 @@
  *
  */
 @import 'bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Play');
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import 'user_sign_form';
 @import 'creases';
 @import 'conversations';
 
+$blue: #17a2b8;
+
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.10em;
-  width: 90%;
+  font-family: 'Play', sans-serif;
+  font-size: 1.15em;
   margin: 0 auto;
+  width: 90%;
 }
 
 .layout-width {
-  width: 70%;
   margin: 0 auto;
+  width: 70%;
 }
 
 h1 {
@@ -40,15 +42,19 @@ h1 small {
 }
 
 .split {
-  padding: 0.4rem;
   margin-top: 1.35rem;
+  padding: .4rem;
 }
 
 .blockquote {
-  padding: .5rem 1rem;
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
   border-left: .25rem solid #eceeef;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  padding: .5rem 1rem;
+
+  .blockquote-footer {
+    float: left;
+  }
 }
 
 .center {
@@ -57,7 +63,7 @@ h1 small {
 
 .nav-center {
   margin: 0 auto;
-  width: 70%;
+  width: 75%;
 }
 
 footer .container {
@@ -65,16 +71,16 @@ footer .container {
 }
 
 .alert-notice {
-  color: #155724;
   background-color: #d4edda;
   border-color: #c3e6cb;
+  color: #155724;
 }
 
 .navbar-toggle .icon-bar {
-  display: block;
-  width: 22px;
-  height: 2px;
   border-radius: 1px;
+  display: block;
+  height: 2px;
+  width: 22px;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -82,20 +88,30 @@ footer .container {
 }
 
 .navbar-light .navbar-brand {
+  color: $blue;
   font-size: 1.65rem;
-  color: rgba(102, 104, 113, 0.9);
 }
 
 .navbar-brand:hover {
-  color: #17a2b8 !important;
+  color: rgba(102, 104, 113, 0.9) !important;
+  cursor: pointer;
+}
+
+.invite {
+  border: 2px solid $blue;
+  letter-spacing: 3.5px;
+  padding: 9px;
+}
+
+input.btn {
   cursor: pointer;
 }
 
 footer {
-  width: 68.8%;
   margin: 0 auto;
+  width: 68.8%;
 }
 
 .link {
-  margin: 3px 3px;
+  margin: 3px;
 }

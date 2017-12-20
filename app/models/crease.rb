@@ -1,4 +1,4 @@
- class Crease < ApplicationRecord
+class Crease < ApplicationRecord
   include AASM
   extend FriendlyId
 

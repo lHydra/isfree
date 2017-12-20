@@ -4,9 +4,7 @@ class PurchasesController < ApplicationController
   def create
     current_user.creases.push @crease
 
-    if @crease.users.count == @crease.recommended_quantity
-      @crease.activate!
-    end
+    @crease.activate! if @crease.users.count == @crease.recommended_quantity
 
     UserNotifier.send_participation_email(current_user, @crease).deliver
     flash[:notice] = 'Вы успешно записались на участие в складчине'
