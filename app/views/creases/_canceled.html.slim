@@ -11,7 +11,7 @@
           tr
             td= link_to crease.title, crease_path(crease)
             td= crease.amount
-            td= "#{crease.users.count}/#{crease.recommended_quantity}"
+            td= "#{crease.participants.count}/#{crease.recommended_quantity}"
 - else
   .jumbotron.jumbotron-fluid
     .container
