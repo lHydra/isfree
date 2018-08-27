@@ -25,6 +25,7 @@ gem 'russian', '~> 0.6.0'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 gem 'mailboxer'
+gem 'seed-fu', '~> 2.3'
 
 group :development, :test do
   gem 'byebug', platform: :mri

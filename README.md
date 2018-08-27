@@ -1,24 +1,49 @@
-# README
+# IsFree
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Steps to start this application:
 
-Things you may want to cover:
+**Database creation and filling**
 
-* Ruby version
+Download project
 
-* System dependencies
+```
+git@github.com:lHydra/isfree.git
+```
 
-* Configuration
+Start bundle install
 
-* Database creation
+```
+bundle install
+```
 
-* Database initialization
+Start rake tasks.
 
-* How to run the test suite
+```
+rake db:create
+rake db:migrate
+rake db:seed_fu
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+**Start the application**
 
-* Deployment instructions
+```
+rails server
+```
 
-* ...
+Open link in your browser: `http://localhost:3000`
+
+Congratulations!
+
+## Seeds
+
+Then seed the database with command
+
+```console
+rails db:seed_fu
+```
+
+Admin
+
+```ruby
+email: 'admin@email.com', password: 'qwerty'
+```
