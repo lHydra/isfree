@@ -17,7 +17,7 @@
       li role='presentation'
         = link_to '#finished', data: { toggle: 'tab' }, role: 'tab', class: 'nav-item nav-link'
           span data-toggle='tooltip' data-placement='top' title='Успешно завершившиеся складчины, где пользователи получили свой товар' Завершенные
-          span.badge.badge-light= @completed_creases.length
+          span.badge.badge-light= @finished_creases.length
       li role='presentation'
         = link_to '#canceled', data: { toggle: 'tab' }, role: 'tab', class: 'nav-item nav-link'
           span data-toggle='tooltip' data-placement='top' title='Складчины, отмененные по каким то причинам автором или администратором' Отмененные

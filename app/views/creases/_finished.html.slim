@@ -1,4 +1,4 @@
-- if !@completed_creases.empty?
+- if !@finished_creases.empty?
   .table-responsive
     table.table.table-bordered
       thead
@@ -7,7 +7,7 @@
           th Сумма
           th Участники
       tbody
-        - @completed_creases.each do |crease|
+        - @finished_creases.each do |crease|
           tr
             td= link_to crease.title, crease_path(crease)
             td= crease.amount

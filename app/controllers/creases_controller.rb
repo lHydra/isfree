@@ -8,12 +8,9 @@ class CreasesController < ApplicationController
     @meta_title = meta_title 'Список складчин'
     @meta_description = 'Список доступных складчин, в которых вы можете записаться на участие. Также можно принять участие в уже завершившихся складчинах.'
 
-    @creases = Crease.all
-    @proposed_creases = @creases.select(&:proposed?)
-    @approved_creases = @creases.select(&:approved?)
-    @active_creases = @creases.select(&:active?)
-    @completed_creases = @creases.select(&:finished?)
-    @canceled_creases = @creases.select(&:canceled?)
+    Crease.aasm.states.each do |state|
+      instance_variable_set "@#{state.name}_creases", Crease.send(state.name)
+    end
   end
 
   def new
