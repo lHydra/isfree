@@ -6,18 +6,19 @@
         i.fa.fa-external-link-square.fa-fw aria-hidden='true'
   hr
   .row
-    .info.border.border-info.col-sm-8
-      span.badge.badge-primary= t(@crease.aasm_read_state)
-      = "#{@crease.users.count}/#{@crease.recommended_quantity} участников"
-      p
-        strong Стоимость:
-        = " #{@crease.amount} (#{@each_amount} рублей/участник)"
-      p
-        strong Дата:
-        = " #{@crease.created_at}"
-      p 
-        - if current_user && current_user.id == @crease.creator_id
-          = link_to 'Удалить', crease_path(@crease), method: :delete, class: 'text-danger', data: { confirm: 'Вы уверены?' }
+    .col-sm-8
+      .info.border.border-info
+        span.badge.badge-primary= t(@crease.aasm_read_state)
+        = "#{@crease.users.count}/#{@crease.recommended_quantity} участников"
+        p
+          strong Стоимость:
+          = " #{@crease.amount} (#{@each_amount} рублей/участник)"
+        p
+          strong Дата:
+          = " #{@crease.created_at}"
+        p
+          - if current_user && current_user.id == @crease.creator_id
+            = link_to 'Удалить', crease_path(@crease), method: :delete, class: 'text-danger', data: { confirm: 'Вы уверены?' }
     .col-sm-4
       / link to start dialog with author
       - if @crease.users.include?(current_user) && current_user.id != @crease.creator_id
